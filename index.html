@@ -1,4 +1,3 @@
-  
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,7 +7,7 @@
     <title>Document</title>
 </head>
 <body>
-    <p id= "countdown">2:00</p>
+    <p id= "countdown">120</p>
  <div class = "container">
   <div class = "row">
    <div id = "startQuizPrompt" class = "col">
@@ -17,7 +16,7 @@
    </div>   
   </div class = "row">   
    <div class = "col text-center">
-    <div id = "question-prompt" style = "display: none;">
+    <div id = "questionPrompt" style = "display: none;">
      <h2 id="question">What is the name of Frodo's sword?</h2>
      <div class = "questions">
          <button id = "correctAnswer1" class = "btn btn-primary">Sting</button>
@@ -30,8 +29,72 @@
           <div id = "incorrectOne" style = "display: none;">
             <p>Incorrect!</p>
           </div>
+        </div>      
+    </div>
+    <div id = "nextQuestion" style = "display: none;">
+        <button id = "nextQuestionBtn1">Next Question!</button>
+    </div>
+     <div id = "questionPrompt2" style = "display: none;">
+      <h2 id = "question2">Who created the One Ring?</h2>
+       <div class = "questions">
+        <button id = "2wrongAnswer1" class = "btn btn-primary2">Boromire</button>
+        <button id = "2wrongAnswer2" class = "btn btn-primary2">Geralt of Rivia</button>
+        <button id = "2wrongAnswer3" class = "btn btn-primary2">Goku</button>
+        <button id = "correctAnswer2" class = "btn btn-primary">Sauron</button>
+         <div id = "correctTwo" style = "display: none;">
+          <p>Correct!</p>
+           </div>
+           <div id = "incorrectTwo" style = "display: none;">
+            <p>Incorrect!</p>
+           </div>
+       </div>
+     </div>
+     <div id = "nextQuestion2" style = "display: none;">
+        <button id = "nextQuestionBtn2">Next Question!</button>
+    </div>
+    <div id = "questionPrompt3" style = "display: none;">
+        <h2 id = "question3">Who is the strongest charater in the trilogy?</h2>
+         <div class = "questions">
+          <button id = "3wrongAnswer1" class = "btn btn-primary3">Frodo</button>
+          <button id = "3wrongAnswer2" class = "btn btn-primary3">Aragorn</button>
+          <button id = "3wrongAnswer3" class = "btn btn-primary3">Legolas</button>
+          <button id = "correctAnswer3" class = "btn btn-primary">Samwise the brave</button>
+           <div id = "correctThree" style = "display: none;">
+            <p>Correct!</p>
+             </div>
+             <div id = "incorrectThree" style = "display: none;">
+              <p>Incorrect!</p>
+             </div>
+         </div>
+       </div>
+       <div id = "nextQuestion3" style = "display: none;">
+          <button id = "nextQuestionBtn3">Next Question!</button>
+      </div>
+      <div id = "questionPrompt4" style = "display: none;">
+        <h2 id = "question4">What is the name of the city where the battle for Middle Earth took place?</h2>
+        <div class = "questions">
+            <button id = "4wrongAnswer1" class = "btn btn-primary4">Rohan</button>
+            <button id = "4wrongAnswer2" class = "btn btn-primary4">The Shire</button>
+            <button id = "correctAnswer4" class = "btn btn-primary">Minas Tirith</button>
+            <button id = "4wrongAnswer3" class = "btn btn-primary4">Mordor</button>
+            <div id = "correctFour" style = "display: none;">
+                <p>Correct!</p>
+            </div>
+            <div id = "incorrectFour" style = "display: none;">
+                <p>Incorrect!</p>
+            </div>
         </div>
     </div>
+    <form id ="enterName" style = "display: none;">
+        <label for="name">Please enter your name:</label>
+        <input type="text" id="name" name="fname" value="Dingus Jones">
+    </form>
+    <div class = "gameOverScreen" style = "display: none">
+        <p>Your final score is " "</p>
+    </div>
+       <div id = "endOfQuiz" style = "display: none;">
+          <button id = "endOfQuizBtn">Finish Quiz</button>
+      </div>
 </div>
  </div>
    
