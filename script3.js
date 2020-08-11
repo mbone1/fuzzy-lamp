@@ -16,9 +16,11 @@ var incorrect4 = document.getElementsByClassName("btn-primary4"); //wrong answer
 var endOfQuiz = document.querySelector("#endOfQuiz");
 var gameOverScreen = document.querySelector(".gameOverScreen");
 var enterName = document.querySelector("#enterName");
+var highScoreButton = document.querySelector("#highScoreButton");
+var enterNameHere = document.querySelector("#enterName1");
 
 const timerText = document.querySelector("#countdown");
-const timerText2 = document.querySelector(".gameOverScreen");
+const timerText2 = document.querySelector(".gameOverScreen")
 let count = 120;
 let intervalID;
 
@@ -28,14 +30,12 @@ startQuizButton.addEventListener("click", function () {
     count -= 1;
     timerText.textContent = count;
     timerText2.textContent = "Your final score is " + count;
-    localStorage.setItem("score", count);
-
-    if (count < 0) {
-      clearInterval(intervalID);
-      alert("game over!");
+    if (count < 0){
+      alert("Game over!");
+      return;
     }
   }, 1000);
-
+  
   for (var i = 0; i < incorrect1.length; i++) {
     //displays incorrect if user clicks anything other than correct answer and a next question button
     incorrect1[i].addEventListener("click", function () {
@@ -74,7 +74,6 @@ startQuizButton.addEventListener("click", function () {
 });
 //TIMER ENDS HERE --------------------------------------------------------------------
 //QUIZ STARTS HERE -------------------------------------------------------------------
-
 document
   .getElementById("startButton")
   .addEventListener("click", function startButton() {
@@ -88,6 +87,7 @@ correct1.addEventListener("click", function correct1() {
   //displays correct if user chooses correct answer and a next question button
   correctOne.style.display = "block";
   nextQuestion.style.display = "block";
+  count += 30;
 });
 
 for (var i = 0; i < incorrect1.length; i++) {
@@ -109,6 +109,7 @@ correct2.addEventListener("click", function correct2() {
   //displays correct if user chooses correct answer and a next question button
   correctTwo.style.display = "block";
   nextQuestion2.style.display = "block";
+  count += 30;
 });
 
 for (var i = 0; i < incorrect2.length; i++) {
@@ -130,12 +131,13 @@ correct3.addEventListener("click", function correct3() {
   //displays correct if user chooses correct answer and a next question button
   correctThree.style.display = "block";
   nextQuestion3.style.display = "block";
+  count += 30;
 });
 
 for (var i = 0; i < incorrect3.length; i++) {
   //displays incorrect if user clicks anything other than correct answer and a next question button
-  incorrect3[i].addEventListener("click", function () {
-    incorrectThree.style.display = "block";
+  incorrect3[i].addEventListener("click", function () {// the [i] here is referencing index 0
+    incorrectThree.style.display = "block";// after function () means is a call back function
     nextQuestion3.style.display = "block";
   });
 }
@@ -151,6 +153,7 @@ correct4.addEventListener("click", function correct4() {
   //displays correct if user chooses correct answer and a next question button
   correctFour.style.display = "block";
   endOfQuiz.style.display = "block";
+  count += 30;
 });
 
 for (var i = 0; i < incorrect4.length; i++) {
@@ -161,34 +164,34 @@ for (var i = 0; i < incorrect4.length; i++) {
   });
 }
 
-let playerNames = [];
-const addPlayerName = (ev)=>{
-   ev.preventDefault();
-  
-  let playerName = {
-    pName: document.getElementById("pName").value,
-  };
-  playerNames.push(playerName);
-  document.getElementById("enterName").reset();
 
-  localStorage.setItem("playerName", JSON.stringify(playerNames));
-}
-
-document.addEventListener('DOMContentLoaded', ()=>{
-    document.getElementById("submitBtn").addEventListener('click', addPlayerName)
+highScoreButton.addEventListener("click", function store(){
+  for (let i = 0; i < 10; i++) {
+    const key = enterNameHere.value[i];
+    localStorage.setItem("name1", key);
+  }
 });
+// highScoreButton.addEventListener("click", function store(){
+//      const key = enterNameHere.value;
+//      localStorage.setItem("name1", key);
+//     });
+
+
 //QUIZ ENDS HERE --------------------------------------------------------------------------------
 
 //things to figure out
 //how to subtract from timer when user selects wrong answer - done
 //how to stop timer at end of quiz - done
-//how to make game end if time reaches 0 - done
+//how to make game end if time reaches 0 -
 //how to take remaining value from timer and save it as a score -
 
 //how we can do this... have a duplicate timer hidden, then display that on screen upon finish game button being pressed
 //with a message that says your score is _______
 //prompt user below to enter name
 //upon enter... display a screen that stores name and high score?
+
+
+
 
 // var questions = [
 // object to store questions and answers
