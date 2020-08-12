@@ -70,6 +70,7 @@ startQuizButton.addEventListener("click", function () {
     endOfQuiz.style.display = "none";
     gameOverScreen.style.display = "inline-block";
     enterName.style.display = "inline";
+    countdown.style.display = "none";
   });
 });
 //TIMER ENDS HERE --------------------------------------------------------------------
@@ -161,10 +162,17 @@ for (var i = 0; i < incorrect4.length; i++) {
   });
 }
 
-let playerNames = [];
-const addPlayerName = (ev)=>{
-   ev.preventDefault();
-  
+let playerNames = localStorage.getItem("playerNames");
+playerNames = JSON.parse(playerNames);
+if (playerNames) {
+  playerNames = JSON.parse(playerNames);
+} else {
+  playerNames = [];
+}
+
+const addPlayerName = (ev) => {
+  ev.preventDefault();
+
   let playerName = {
     pName: document.getElementById("pName").value,
   };
@@ -172,11 +180,15 @@ const addPlayerName = (ev)=>{
   document.getElementById("enterName").reset();
 
   localStorage.setItem("playerName", JSON.stringify(playerNames));
-}
+};
 
-document.addEventListener('DOMContentLoaded', ()=>{
-    document.getElementById("submitBtn").addEventListener('click', addPlayerName)
+document.addEventListener("DOMContentLoaded", () => {
+  document.getElementById("submitBtn").addEventListener("click", addPlayerName);
 });
+
+
+
+
 //QUIZ ENDS HERE --------------------------------------------------------------------------------
 
 //things to figure out
